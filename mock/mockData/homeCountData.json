@@ -1,0 +1,6 @@
+{
+  "viewCount": "@integer(1, 1000)",
+  "userCount": "@integer(1, 1000)",
+  "articleCount": "@integer(1, 1000)",
+  "messageCount": "@integer(1, 1000)"
+}

@@ -1,0 +1,31 @@
+{
+  "viewChart": {
+    "xAxis": ["2023-5-1", "2023-5-2", "2023-5-3", "2023-5-4", "2023-5-5", "2023-5-6", "2023-5-7"],
+    "data|7": ["@integer(1, 100)"]
+  },
+  "userChart": {
+    "xAxis|5": ["@province()"],
+    "data|5": ["@integer(200, 1000)"]
+  },
+  "codeChart": {
+    "data": [
+      {
+        "name": "Java",
+        "value": "@integer(3, 10)"
+      },
+      {
+        "name": "Python",
+        "value": "@integer(3, 10)"
+      },{
+        "name": "Javascript",
+        "value": "@integer(3, 10)"
+      },{
+        "name": "C",
+        "value": "@integer(3, 10)"
+      },{
+        "name": "C++",
+        "value": "@integer(3, 10)"
+      }
+    ]
+  }
+}
