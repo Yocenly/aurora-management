@@ -10,7 +10,7 @@ export default {
   name: 'App',
   created () {
     if (sessionStorage.getItem('token')) {
-      generateMenu()
+      generateMenu();
     } else {
       this.$router.push('/login')
     }

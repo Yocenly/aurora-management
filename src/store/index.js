@@ -8,41 +8,8 @@ export default new Vuex.Store({
   state: {
     collapse: false,
     tabList: [{ name: '首页', path: '/home' }],
-    userInfo: {
-      avatar:
-        'https://img2.baidu.com/it/u=3618236253,1028428296&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-    },
-    userMenus: [
-      {
-        path: '/home',
-        name: '首页',
-        hidden: false,
-        icon: 's-home',
-        url: 'Home/Home',
-      },
-      {
-        path: '/user',
-        name: '用户管理',
-        hidden: false,
-        icon: 'user',
-        url: 'UserManage/UserManage',
-      },
-      {
-        path: '/article',
-        name: '文章管理',
-        hidden: false,
-        icon: 'document',
-        url: 'MallManage/Manage',
-      },
-
-      {
-        path: '/about',
-        name: '个人中心',
-        hidden: false,
-        icon: 'paperclip',
-        url: 'UserManage/UserManage',
-      },
-    ],
+    userInfo: {},
+    userMenus: [],
     pageState: {
       articleList: 1,
       category: 1,
@@ -58,7 +25,7 @@ export default new Vuex.Store({
   },
   mutations: {
     saveTab(state, tab) {
-      if (state.tabList.findIndex((item) => item.path === tab.path) == -1) {
+      if (state.tabList.findIndex((item) => item.path === tab.path) === -1) {
         state.tabList.push({ name: tab.name, path: tab.path });
       }
     },

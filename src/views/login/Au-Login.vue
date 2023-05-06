@@ -38,26 +38,19 @@ export default {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           // 此处原本有验证码校验, 但是使用有问题未解决, 这里将其删除了
-          // let param = new URLSearchParams()
-          // param.append('username', this.loginForm.username)
-          // param.append('password', this.loginForm.password)
           login(this.loginForm).then(({ data }) => {
             if (data.code === 200) {
               this.$store.commit('login', data.data)
               generateMenu()
               this.$message.success(data.message)
               this.$router.push({ path: '/' })
+              this.$refs.ruleForm.resetFields()
             } else {
               this.$message.error(data.message)
             }
-          }).catch(({ message }) => {
-            console.log(message);
           })
-          this.$refs.ruleForm.resetFields()
         } else {
-          this.$refs.ruleForm.resetFields()
           this.$message.success('用户名/密码不能为空')
-          return false
         }
       })
     }
