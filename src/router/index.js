@@ -16,36 +16,7 @@ const routes = [
     hidden: true,
     redirect: '/home',
     component: () => import('@/components/Au-Layout.vue'),
-    children: [
-      // {
-      //   path: 'home',
-      //   name: '首页',
-      //   hidden: false,
-      //   icon: 's-home',
-      //   component: () => import('@/views/home/Au-Home.vue'),
-      // },
-      // {
-      //   path: 'user',
-      //   name: '用户管理',
-      //   hidden: false,
-      //   icon: 'user',
-      //   component: () => import('@/views/user/Au-User.vue'),
-      // },
-      // {
-      //   path: 'article',
-      //   name: '文章管理',
-      //   hidden: false,
-      //   icon: 'document',
-      //   component: () => import('@/views/article/Au-Article.vue'),
-      // },
-      // {
-      //   path: 'about',
-      //   name: '个人中心',
-      //   hidden: false,
-      //   icon: 'paperclip',
-      //   component: () => import('@/views/about/Au-About.vue'),
-      // },
-    ],
+    children: [],
   },
 ];
 

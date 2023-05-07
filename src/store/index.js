@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import createPersistedState from 'vuex-persistedstate';
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     collapse: false,
     tabList: [{ name: '首页', path: '/home' }],
-    userInfo: {},
+    userInfo: null,
     userMenus: [],
     pageState: {
       articleList: 1,
@@ -47,6 +47,7 @@ export default new Vuex.Store({
       state.userMenus = userMenus;
     },
     logout(state) {
+      sessionStorage.removeItem('token')
       state.userInfo = null;
       state.userMenus = [];
     },
@@ -91,14 +92,9 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
-  // plugins: [
-  //   createPersistedState({
-  //     storage: window.sessionStorage,
-  //     reducer(data) {
-  //       return {
-  //         ...data.userMenus,
-  //       };
-  //     },
-  //   }),
-  // ],
+  plugins: [
+    createPersistedState({
+      storage: window.sessionStorage,
+    }),
+  ],
 });

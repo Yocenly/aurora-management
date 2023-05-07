@@ -38,7 +38,7 @@
       <div class="tabs-wrapper">
         <span :class="isActive(item)" v-for="item of this.$store.state.tabList" :key="item.path" @click="goTo(item)">
           {{ item.name }}
-          <i class="el-icon-close" v-if="item.path != '/home'" @click.stop="removeTab(item)" />
+          <i class="el-icon-close" v-if="item.path !== '/home'" @click.stop="removeTab(item)" />
         </span>
       </div>
       <div class="tabs-close-item" style="float: right" @click="closeAllTab">全部关闭</div>
@@ -71,7 +71,7 @@ export default {
       this.$router.push({ path: tab.path }, () => { }, () => { });
     },
     removeTab (tab) {
-      if (tab.path == this.$route.path) {
+      if (tab.path === this.$route.path) {
         let tabList = this.$store.state.tabList;
         let index = tabList.findIndex((item) => item.path === tab.path);
         this.$router.push({ path: tabList[index + 1 === tabList.length ? index - 1 : index + 1].path });
@@ -82,10 +82,10 @@ export default {
       this.$store.commit('trigger');
     },
     handleCommand (command) {
-      if (command == 'about') {
+      if (command === 'about') {
         this.$router.push({ path: '/about' });
       }
-      if (command == 'logout') {
+      if (command === 'logout') {
         sessionStorage.removeItem('token');
         this.$router.push({ path: '/login' });
         this.$store.commit('logout');
