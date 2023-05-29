@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkaurora_management"]=self["webpackChunkaurora_management"]||[]).push([[40],{1040:function(e,n,t){t.r(n),t.d(n,{default:function(){return s}});var u=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},a=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h1",[e._v("About: Yuqian Lv")])])}],r={name:"Au-About"},c=r,l=t(1001),f=(0,l.Z)(c,u,a,!1,null,"3c0002bf",null),s=f.exports}}]);
+//# sourceMappingURL=40.c2900884.js.map
