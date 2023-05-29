@@ -1,33 +1,33 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     hidden: true,
-    component: () => import('@/views/login/Au-Login.vue'),
+    component: () => import("@/views/login/Au-Login.vue")
   },
   {
-    path: '/',
-    name: 'layout',
+    path: "/",
+    name: "layout",
     hidden: true,
-    redirect: '/home',
-    component: () => import('@/layout/Au-Layout.vue'),
-    children: [],
-  },
+    redirect: "/home",
+    component: () => import("@/layout/Au-Layout.vue"),
+    children: []
+  }
 ];
 
 function registerNavigationGuards(router) {
   // 配置全局前置路由守卫
   router.beforeEach((to, from, next) => {
-    const token = sessionStorage.getItem('token');
-    if (!token && to.name !== 'login') {
-      next({ name: 'login' });
-    } else if (token && to.name === 'login') {
-      next({ name: 'layout' });
+    const token = sessionStorage.getItem("token");
+    if (!token && to.name !== "login") {
+      next({ name: "login" });
+    } else if (token && to.name === "login") {
+      next({ name: "layout" });
     } else {
       next();
     }
@@ -42,8 +42,8 @@ function registerNavigationGuards(router) {
 const createRouter = () =>
   registerNavigationGuards(
     new VueRouter({
-      mode: 'history',
-      routes: routes,
+      mode: "history",
+      routes: routes
     })
   );
 
