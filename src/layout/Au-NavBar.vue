@@ -3,7 +3,7 @@
     <!-- 导航栏顶部区域, 实现面包屑和用户菜单等功能 -->
     <div class="nav-bar">
       <div class="hambuger-container" @click="trigger">
-        <i :class="isFold" />
+        <i :class="isFold"/>
       </div>
       <!-- 面包屑模块  -->
       <el-breadcrumb>
@@ -16,18 +16,18 @@
       <div class="right-menu">
         <!-- 全屏显示图标 -->
         <div class="screen-full" @click="fullScreen">
-          <i class="el-icon-full-screen" />
+          <i class="el-icon-full-screen"/>
         </div>
         <!-- 用户头像菜单 -->
         <el-dropdown trigger="click" @command="handleCommand" style="cursor: pointer;">
-          <el-avatar :size="40" :src="this.$store.state.userInfo.avatar" />
-          <i class="el-icon-caret-bottom" />
+          <el-avatar :size="40" :src="this.$store.state.userInfo.avatar"/>
+          <i class="el-icon-caret-bottom"/>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="about">
-              <i class="el-icon-s-custom" />个人中心
+              <i class="el-icon-s-custom"/>个人中心
             </el-dropdown-item>
             <el-dropdown-item command="logout" divided>
-              <i class="el-icon-switch-button" />退出登录
+              <i class="el-icon-switch-button"/>退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -38,7 +38,7 @@
       <div class="tabs-wrapper">
         <span :class="isActive(item)" v-for="item of this.$store.state.tabList" :key="item.path" @click="goTo(item)">
           {{ item.name }}
-          <i class="el-icon-close" v-if="item.path !== '/home'" @click.stop="removeTab(item)" />
+          <i class="el-icon-close" v-if="item.path !== '/home'" @click.stop="removeTab(item)"/>
         </span>
       </div>
       <div class="tabs-close-item" style="float: right" @click="closeAllTab">全部关闭</div>
@@ -47,57 +47,62 @@
 </template>
 
 <script>
-import { resetRouter } from '@/router'
+import { resetRouter } from "@/router";
+
 export default {
-  name: 'Au-Navbar',
-  created () {
-    let matched = this.$route.matched.filter((item) => item.name !== 'layout');
+  name: "Au-Navbar",
+  created() {
+    let matched = this.$route.matched.filter((item) => item.name !== "layout");
     const first = matched[0];
-    if (first && first.name !== '首页') {
-      matched = [{ path: '/', name: '首页' }].concat(matched);
+    if (first && first.name !== "首页") {
+      matched = [{ path: "/", name: "首页" }].concat(matched);
     }
     this.breadcrumbs = matched;
-    this.$store.commit('saveTab', this.$route);
+    this.$store.commit("saveTab", this.$route);
   },
-  data () {
+  data() {
     return {
       isSearch: false,
       fullscreen: false,
-      breadcrumbs: [],
-    }
+      breadcrumbs: []
+    };
   },
   methods: {
-    goTo (tab) {
-      this.$router.push({ path: tab.path }, () => { }, () => { });
+    goTo(tab) {
+      this.$router.push({ path: tab.path }, () => {
+      }, () => {
+      });
     },
-    removeTab (tab) {
+    removeTab(tab) {
       if (tab.path === this.$route.path) {
         let tabList = this.$store.state.tabList;
         let index = tabList.findIndex((item) => item.path === tab.path);
         this.$router.push({ path: tabList[index + 1 === tabList.length ? index - 1 : index + 1].path });
       }
-      this.$store.commit('removeTab', tab);
+      this.$store.commit("removeTab", tab);
     },
-    trigger () {
-      this.$store.commit('trigger');
+    trigger() {
+      this.$store.commit("trigger");
     },
-    handleCommand (command) {
-      if (command === 'about') {
-        this.$router.push({ path: '/about' });
+    handleCommand(command) {
+      if (command === "about") {
+        this.$router.push({ path: "/about" });
       }
-      if (command === 'logout') {
-        sessionStorage.removeItem('token');
-        this.$router.push({ path: '/login' });
-        this.$store.commit('logout');
-        this.$store.commit('resetTab');
+      if (command === "logout") {
+        sessionStorage.removeItem("token");
+        this.$router.push({ path: "/login" });
+        this.$store.commit("logout");
+        this.$store.commit("resetTab");
         resetRouter();
       }
     },
-    closeAllTab () {
-      this.$store.commit('resetTab');
-      this.$router.push({ path: '/' }, () => { }, () => { });
+    closeAllTab() {
+      this.$store.commit("resetTab");
+      this.$router.push({ path: "/" }, () => {
+      }, () => {
+      });
     },
-    fullScreen () {
+    fullScreen() {
       // 实现全屏显示切换功能
       let element = document.documentElement;
       if (this.fullscreen) {
@@ -125,19 +130,19 @@ export default {
     }
   },
   computed: {
-    isActive () {
+    isActive() {
       return function (tab) {
-        if (tab.path == this.$route.path) {
-          return 'tabs-view-item-active';
+        if (tab.path === this.$route.path) {
+          return "tabs-view-item-active";
         }
-        return 'tabs-view-item';
-      }
+        return "tabs-view-item";
+      };
     },
-    isFold () {
-      return this.$store.state.collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold';
+    isFold() {
+      return this.$store.state.collapse ? "el-icon-s-unfold" : "el-icon-s-fold";
     }
   }
-}
+};
 </script>
 
 <style lang='css' scoped>
@@ -215,7 +220,6 @@ export default {
   cursor: pointer;
   height: 25px;
   line-height: 25px;
-  border: 1px solid #05d108;
   padding: 0 8px;
   font-size: 12px;
   margin-top: 4px;

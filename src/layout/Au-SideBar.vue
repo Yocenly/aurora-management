@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-menu class="side-bar" router menu-trigger="click" :collapse="this.$store.state.collapse"
-      :default-active="this.$route.path" background-color="#304156" text-color="#BFCBD9" active-text-color="#409EFF">
+             :default-active="this.$route.path" background-color="#304156" text-color="#BFCBD9" active-text-color="#409EFF">
       <!-- 遍历用户目录 -->
       <template v-for="route of this.$store.state.userMenus">
         <!-- 对于有子菜单的目录单独处理 -->

@@ -15,7 +15,7 @@ const routes = [
     name: 'layout',
     hidden: true,
     redirect: '/home',
-    component: () => import('@/components/Au-Layout.vue'),
+    component: () => import('@/layout/Au-Layout.vue'),
     children: [],
   },
 ];

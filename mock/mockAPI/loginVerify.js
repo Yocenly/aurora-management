@@ -1,9 +1,8 @@
 export default function ({ body }) {
   let { username, password } = JSON.parse(body);
   let totalUserInfo = require("../mockData/userInfoData.json");
-  let totalUsers = Object.keys(totalUserInfo);
-  if (totalUsers.includes(username)) {
-    let [pwd, userInfo] = Object.values(totalUserInfo[username]);
+  if (username in totalUserInfo) {
+    let {password: pwd, userInfo} = totalUserInfo[username];
     if (password === pwd) {
       return {
         code: 200,
