@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkaurora_management"]=self["webpackChunkaurora_management"]||[]).push([[301],{2301:function(e,n,t){t.r(n),t.d(n,{default:function(){return i}});var a=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},r=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"main-container"},[t("h1",[e._v("User")])])}],u={name:"Au-User"},s=u,c=t(1001),l=(0,c.Z)(s,a,r,!1,null,"957072b0",null),i=l.exports}}]);
+//# sourceMappingURL=301.8fd3e4c1.js.map
