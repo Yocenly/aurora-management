@@ -1,6 +1,6 @@
 export default function ({ body }) {
   let { username, password } = JSON.parse(body);
-  let totalUserInfo = require("../mockData/userInfoData.json");
+  let totalUserInfo = require("../mockData/permission.json");
   if (username in totalUserInfo) {
     let {password: pwd, userInfo} = totalUserInfo[username];
     if (password === pwd) {

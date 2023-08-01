@@ -1,3 +1,14 @@
+<script>
+export default {
+  name: 'SideBar',
+  data () {
+    return {
+      isCollapse: true
+    };
+  },
+}
+</script>
+
 <template>
   <div>
     <el-menu class="side-bar" router menu-trigger="click" :collapse="this.$store.state.collapse"
@@ -33,28 +44,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Au-SideBar',
-  data () {
-    return {
-      isCollapse: true
-    };
-  },
-}
-</script>
-
-<style lang='less' scoped>
-.side-bar {
-  height: 100vh;
-  border: none;
-
-  &:not(.el-menu--collapse) {
-    width: 210px;
-  }
-
-  i {
-    margin-right: 1rem;
-  }
-}
+<style scoped lang="less">
+@import "../style/index.less";
 </style>

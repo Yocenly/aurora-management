@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     collapse: false,
-    tabList: [{ name: '首页', path: '/home' }],
+    tabList: [{ label: '首页', path: '/home' }],
     userInfo: null,
     userMenus: [],
     pageState: {
@@ -26,7 +26,8 @@ export default new Vuex.Store({
   mutations: {
     saveTab(state, tab) {
       if (state.tabList.findIndex((item) => item.path === tab.path) === -1) {
-        state.tabList.push({ name: tab.name, path: tab.path });
+        console.log(tab)
+        state.tabList.push({ name: tab.meta.label, path: tab.path });
       }
     },
     removeTab(state, tab) {

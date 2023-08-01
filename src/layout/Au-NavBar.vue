@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航栏顶部区域, 实现面包屑和用户菜单等功能 -->
-    <div class="nav-bar">
+    <div class="top-bar">
       <div class="hambuger-container" @click="trigger">
         <i :class="isFold"/>
       </div>
@@ -145,8 +145,8 @@ export default {
 };
 </script>
 
-<style lang='css' scoped>
-.nav-bar {
+<style lang='less' scoped>
+.top-bar {
   display: flex;
   align-items: center;
   padding-left: 13px;
